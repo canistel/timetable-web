@@ -5,3 +5,10 @@
  * https://opensource.org/licenses/MIT
  */
 
+.PlusButton {
+    font-size: 1.5em;
+    background: linear-gradient(#00f, #00b);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

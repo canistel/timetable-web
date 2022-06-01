@@ -5,3 +5,28 @@
  * https://opensource.org/licenses/MIT
  */
 
+.Schedule {
+    height: 300px;
+    width: 100%;
+}
+
+.ScheduleContainer {
+    height: 100%;
+    width: 100%;    
+}
+
+.Schedule_start {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.Schedule_end {
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

@@ -3,6 +3,7 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
+import ReactTooltip from 'react-tooltip';
 import { Button } from 'react-bootstrap';
 import styles from "./NavBar.module.css";
 import React from "react";
@@ -11,19 +12,30 @@ import React from "react";
 interface IProps extends React.HTMLAttributes<HTMLDivElement> {
   onGetOut?: () => void;
   onGetIn?: () => void;
-  isLoggedIn: boolean;
+  username?: string;
 }
 
 // component
 export default function NavBar(props: IProps) {
   // conditional component
-  let button = <></>;
+  let component = <></>;
 
   // if user is logged in
-  if (props.isLoggedIn) {
-    <Button variant="outline-primary" onClick={props.onGetOut}>Logout</Button>
+  if (!props.username) {
+    component = <Button variant="outline-primary" onClick={props.onGetIn}>GetIn</Button>
   } else {
-    <Button variant="outline-primary" onClick={props.onGetIn}>GetIn</Button>
+    component = (
+      <React.Fragment>
+        <Button 
+          data-tip={`Logged in as ${props.username}`}
+          variant="outline-primary" 
+          onClick={props.onGetOut} 
+        >
+          Logout
+        </Button>
+        <ReactTooltip />
+      </React.Fragment>
+    );
   }
 
   // render
@@ -33,7 +45,7 @@ export default function NavBar(props: IProps) {
         <img src={require("../../assets/images/logo.png")} alt="Logo" />
       </div>
       <div className={styles.NavBar_end}>
-        {button}
+        {component}
       </div>
     </div>
   );

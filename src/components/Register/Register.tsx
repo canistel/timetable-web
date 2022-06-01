@@ -14,7 +14,7 @@ interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 // Component
-export default function GetIn(props: IProps) {
+export default function Register(props: IProps) {
   // state of components
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
