@@ -5,3 +5,33 @@
  * https://opensource.org/licenses/MIT
  */
 
+.Timetable {
+    height: 100px;
+    width: 300px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.TimetableContainer {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.TimetableContainer img {
+    max-height: 250px;
+    max-width: 100%;
+}
+
+.TimetableContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.TimetableContent img {
+    max-height: 30px;
+    max-width: 30px;
+}
