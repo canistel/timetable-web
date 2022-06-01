@@ -1,0 +1,20 @@
+/**
+ * Copyright (c) 2022 Sri Lakshmi Kanthan P
+ * 
+ * This software is released under the MIT License.
+ * https://opensource.org/licenses/MIT
+ */
+
+.GetIn {
+    height: 100px;
+    width: 300px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.Buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
