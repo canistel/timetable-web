@@ -1,0 +1,25 @@
+/**
+ * Copyright (c) 2022 Sri Lakshmi Kanthan P
+ * 
+ * This software is released under the MIT License.
+ * https://opensource.org/licenses/MIT
+ */
+
+.NavBar {
+    width: 100%;
+    height: 70px;
+}
+
+.NavBar_start {
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.NavBar_end {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

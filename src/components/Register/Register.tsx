@@ -4,7 +4,7 @@
 // https://opensource.org/licenses/MIT
 
 import { FloatingLabel, Form, Button } from 'react-bootstrap';
-import styles from "./GetIn.module.css";
+import styles from "./Register.module.css";
 import React, { useState } from "react";
 
 // Component IProps
@@ -26,6 +26,9 @@ export default function GetIn(props: IProps) {
   // render
   return (
     <Form className={styles.GetIn}>
+      <div className={styles.UserIcon}>
+        <img src={require("../../assets/imagesuser.png").default} alt="User" className='img-fluid mx-auto'/>
+      </div>
       <FloatingLabel controlId="nameInput" label="Username" className="mb-3">
         <Form.Control type="text" placeholder="Username" onChange={e => setUsername(e.target.value)}></Form.Control>
       </FloatingLabel>

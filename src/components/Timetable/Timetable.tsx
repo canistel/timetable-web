@@ -3,6 +3,7 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
+import { ITimetable } from "../../interfaces";
 import { Container } from 'react-bootstrap';
 import styles from "./GetIn.module.css";
 import React, { useState } from "react";
@@ -11,15 +12,14 @@ import React, { useState } from "react";
 interface IProps extends React.HTMLAttributes<HTMLDivElement> {
   onClicked?: (timetableId: number) => void;
   onEdited?: (timetableId: number) => void;
-  timetableId: number;
-  description: string;
+  timetable: ITimetable;
   initiallyEditable: boolean;
 }
 
 // component
 export default function Timetable(props: IProps) {
-  // component states
-  const [description, setDescription] = useState(props.description);
+  // Component States
+  const [description, setDescription] = useState(props.timetable.description);
   const [editable, setEditable] = useState(props.initiallyEditable);
 
   // Change Handler
@@ -29,7 +29,7 @@ export default function Timetable(props: IProps) {
 
   // Click Handler
   const clickHandler = () => {
-    props.onClicked && props.onClicked(props.timetableId);
+    props.onClicked && props.onClicked(props.timetable.timetableId);
   }
 
   // Edit Handler
@@ -37,13 +37,21 @@ export default function Timetable(props: IProps) {
     setEditable(true);
   }
 
+  // key down handler
+  const keyDownHandler = (evt: React.KeyboardEvent<HTMLDivElement>) => {
+    if (evt.key === "Enter") {
+      setEditable(false);
+      props.onEdited && props.onEdited(props.timetable.timetableId);
+    }
+  }
+
   // render
   return (
-    <div className={styles.Timetable} onClick={clickHandler}>
+    <div className={styles.Timetable} onClick={clickHandler} onKeyDown={keyDownHandler}>
       <Container className={styles.TimetableContainer}>
         <img src={require("../../assets/images/logo.png").default} alt="Logo" className='img-fluid mx-auto' />
         <div className={styles.TimetableContent}>
-          <div contentEditable={editable} onChange={changeHandler}>{props.description}</div>
+          <div contentEditable={editable} onChange={changeHandler}>{props.timetable.description}</div>
           <img src={require("../../assets/images/editpen.png").default} alt="logo" onClick={editHandler} />
         </div>
       </Container>
