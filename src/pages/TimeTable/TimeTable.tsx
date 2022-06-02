@@ -3,7 +3,7 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-import { Timetable as CoreComponent, PlusButton } from "../../components";
+import { Timetable as CoreComponent } from "../../components";
 import { ITimetable } from "../../interfaces";
 import styles from "./TimeTable.module.css";
 import { NavBar } from "../../components";
@@ -29,6 +29,13 @@ export default function Timetable() {
     );
   });
 
+  // add keydown handler
+  document.addEventListener("keydown", (event: KeyboardEvent) => {
+    if(event.key === "=" && event.ctrlKey && event.altKey) {
+      // create new timetable
+    }
+  });
+
   // render
   return (
     <main className={styles.Timetable}>
@@ -37,7 +44,6 @@ export default function Timetable() {
       </section>
       <section className={styles.Main}>
         {components}
-        <PlusButton />
       </section>
     </main>
   );
