@@ -25,19 +25,19 @@ export default function Register(props: IProps) {
 
   // render
   return (
-    <Form className={styles.GetIn}>
-      <div className={styles.UserIcon}>
-        <img src={require("../../assets/imagesuser.png").default} alt="User" className='img-fluid mx-auto'/>
+    <Form className={`${styles.Register} d-flex align-items-center justify-content-center flex-column`}>
+      <div className={`${styles.UserIcon} mb-3`}>
+        <img src={require("../../assets/images/user.png")} alt="User" className='img-fluid mx-auto'/>
       </div>
-      <FloatingLabel controlId="nameInput" label="Username" className="mb-3">
+      <FloatingLabel controlId="nameInput" label="Username" className="mb-3 w-75">
         <Form.Control type="text" placeholder="Username" onChange={e => setUsername(e.target.value)}></Form.Control>
       </FloatingLabel>
-      <FloatingLabel controlId="passInput" label="Password" className="mb-3">
+      <FloatingLabel controlId="passInput" label="Password" className="mb-3 w-75">
         <Form.Control type="text" placeholder="Password" onChange={e => setPassword(e.target.value)}></Form.Control>
       </FloatingLabel>
-      <div className={styles.Buttons}>
-        <Button variant="primary" onClick={signUpHandler}>Sign Up</Button>
-        <Button variant="primary" onClick={signInHandler}>Sign In</Button>
+      <div className={'d-flex align-items-center justify-content-center mb-3'}>
+        <Button variant="primary" onClick={signUpHandler} className="mx-1">Sign Up</Button>
+        <Button variant="primary" onClick={signInHandler} className="mx-1">Sign In</Button>
       </div>
     </Form>
   );

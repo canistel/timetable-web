@@ -5,7 +5,10 @@
  * https://opensource.org/licenses/MIT
  */
 
-.Logo {
-    max-height: 40px;
-    max-width: 40px;
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+    overflow-y: hidden;
 }

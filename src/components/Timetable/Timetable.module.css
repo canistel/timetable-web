@@ -6,32 +6,34 @@
  */
 
 .Timetable {
-    height: 100px;
-    width: 300px;
-    padding: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    height: 200px;
+    width: 250px;
     margin: 10px;
-}
-
-.TimetableContainer {
+    cursor: pointer;
+    border-radius: 10px;
     display: flex;
-    justify-self: center;
     align-items: center;
-    flex-direction: row;
-}
-
-.TimetableContainer img {
-    max-height: 250px;
-    max-width: 100%;
-}
-
-.TimetableContent {
-    display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
 }
 
-.TimetableContent img {
-    max-height: 30px;
-    max-width: 30px;
+.RandomColor {
+    border-radius: 10px 10px 0px 0px;
+    padding-top: 60%;
+    width: 100%;
+}
+
+.Editable {
+    outline: 0px solid transparent;
+    font-weight: bold;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.EditPen {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
 }

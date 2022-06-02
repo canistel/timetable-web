@@ -52,7 +52,7 @@ export default function Schedule(props: IProps) {
         </div>
         <div className={styles.Schedule_end}>
           <Row xs={12}>
-            <img src={require("../../assets/images/edit.png").default} alt="Edit" onClick={editHandler} />
+            <img src={require("../../assets/images/editpen.png").default} alt="Edit" onClick={editHandler} />
           </Row>
           <Row xs={12}>
             <Form.Check type="checkbox" onChange={tickHandler} checked={props.schedule.finished}/>

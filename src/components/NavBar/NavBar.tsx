@@ -3,8 +3,8 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
+import { Button, Container, Navbar } from 'react-bootstrap';
 import ReactTooltip from 'react-tooltip';
-import { Button } from 'react-bootstrap';
 import styles from "./NavBar.module.css";
 import React from "react";
 
@@ -22,14 +22,14 @@ export default function NavBar(props: IProps) {
 
   // if user is logged in
   if (!props.username) {
-    component = <Button variant="outline-primary" onClick={props.onGetIn}>GetIn</Button>
+    component = <Button variant="primary" onClick={props.onGetIn}>GetIn</Button>
   } else {
     component = (
       <React.Fragment>
-        <Button 
+        <Button
           data-tip={`Logged in as ${props.username}`}
-          variant="outline-primary" 
-          onClick={props.onGetOut} 
+          variant="outline-primary"
+          onClick={props.onGetOut}
         >
           Logout
         </Button>
@@ -40,13 +40,18 @@ export default function NavBar(props: IProps) {
 
   // render
   return (
-    <div className={styles.NavBar}>
-      <div className={styles.NavBar_start}>
-        <img src={require("../../assets/images/logo.png")} alt="Logo" />
-      </div>
-      <div className={styles.NavBar_end}>
-        {component}
-      </div>
-    </div>
+    <Navbar bg='light' expand="md" fixed='top' className='shadow-sm'>
+      <Container>
+        <Navbar.Brand href="#">
+          <img src={require("../../assets/images/logo.png")} alt="Logo" className={styles.Logo}/>
+        </Navbar.Brand>
+        <Navbar.Toggle />
+        <Navbar.Collapse className="justify-content-end">
+          <Navbar.Text>
+            {component}
+          </Navbar.Text>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
