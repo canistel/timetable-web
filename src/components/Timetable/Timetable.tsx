@@ -11,8 +11,8 @@ import gradient from 'random-gradient'
 
 // Component IProps
 interface IProps extends React.HTMLAttributes<HTMLDivElement> {
+  onEditRequest?: (timetableId: number) => void;
   onClicked?: (timetableId: number) => void;
-  onEdited?: (timetableId: number) => void;
   timetable: ITimetable;
 }
 
@@ -20,7 +20,6 @@ interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 export default function Timetable(props: IProps) {
   // Component States
   const [description, setDescription] = useState(props.timetable.description);
-  const [editable, setEditable] = useState(false);
 
   // random color
   const color = gradient(props.timetable.description);
@@ -37,14 +36,13 @@ export default function Timetable(props: IProps) {
 
   // Edit Handler
   const editHandler = () => {
-    setEditable(true);
+    props.onEditRequest && props.onEditRequest(props.timetable.timetableId);
   }
 
   // key down handler
   const keyDownHandler = (evt: React.KeyboardEvent<HTMLDivElement>) => {
     if (evt.key === "Enter") {
-      setEditable(false);
-      props.onEdited && props.onEdited(props.timetable.timetableId);
+      props.onEditRequest && props.onEditRequest(props.timetable.timetableId);
     }
   }
 
@@ -59,7 +57,7 @@ export default function Timetable(props: IProps) {
         </Row>
         <Row className='justify-content-center'>
           <Col xs={8} className='d-flex align-items-center justify-content-center'>
-            <div className={styles.Editable} contentEditable={editable} onChange={changeHandler}>
+            <div className={styles.Editable} onChange={changeHandler}>
               {props.timetable.description}
             </div>
           </Col>

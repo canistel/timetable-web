@@ -4,12 +4,16 @@
 // https://opensource.org/licenses/MIT
 
 import { Timetable as CoreComponent } from "../../components";
+import { useNavigate } from "react-router-dom";
 import { ITimetable } from "../../interfaces";
 import styles from "./TimeTable.module.css";
 import { NavBar } from "../../components";
 
 // Timetable page component
 export default function Timetable() {
+  // navugation hook to nav
+  const navigation = useNavigate();
+
   // list of time tables
   const timetableList: ITimetable[] = [
     {
@@ -22,10 +26,15 @@ export default function Timetable() {
     },
   ];
 
+  // timetable click event
+  const showTimeTable = (timetableId: number) => {
+    navigation(`/timetables/${timetableId}`)
+  }
+
   // list of components
   const components = timetableList.map(value => {
     return (
-      <CoreComponent timetable={value} />
+      <CoreComponent timetable={value} onClicked={showTimeTable}/>
     );
   });
 
@@ -39,7 +48,7 @@ export default function Timetable() {
   // render
   return (
     <main className={styles.Timetable}>
-      <section className={styles.NavBsr}>
+      <section className={styles.NavBar}>
         <NavBar />
       </section>
       <section className={styles.Main}>

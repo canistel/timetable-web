@@ -1,0 +1,30 @@
+/**
+ * Copyright (c) 2022 Sri Lakshmi Kanthan P
+ * 
+ * This software is released under the MIT License.
+ * https://opensource.org/licenses/MIT
+ */
+
+.Page404 {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.StatusCode, .Message {
+    background: linear-gradient(#00f, #00b);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+.StatusCode {
+    font-size: 4.5rem;
+}
+
+.Message {
+    font-size: 2.0rem;
+}

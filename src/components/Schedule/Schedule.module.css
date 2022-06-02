@@ -6,8 +6,11 @@
  */
 
 .Schedule {
-    height: 300px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    height: 100%;
     width: 100%;
+    border-radius: 10px;
+    padding: 20px;
 }
 
 .ScheduleContainer {
@@ -15,18 +18,28 @@
     width: 100%;    
 }
 
-.Schedule_start {
-    width: 80%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+.EditPen {
+    margin-left: auto;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    display: block;
 }
 
-.Schedule_end {
-    width: 20%;
+.Title {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.startTime,
+.endTime,
+.Connect {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: gray;
+}
+
+.Status {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
 }

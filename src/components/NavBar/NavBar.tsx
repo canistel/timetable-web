@@ -3,7 +3,7 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-import { Button, Container, Navbar } from 'react-bootstrap';
+import { Button, Container, Navbar, Nav } from 'react-bootstrap';
 import ReactTooltip from 'react-tooltip';
 import styles from "./NavBar.module.css";
 import React from "react";
@@ -22,19 +22,28 @@ export default function NavBar(props: IProps) {
 
   // if user is logged in
   if (!props.username) {
-    component = <Button variant="primary" onClick={props.onGetIn}>GetIn</Button>
+    component = (
+      <Button variant="primary" onClick={props.onGetIn}>GetIn</Button>
+    );
   } else {
     component = (
-      <React.Fragment>
-        <Button
-          data-tip={`Logged in as ${props.username}`}
-          variant="outline-primary"
-          onClick={props.onGetOut}
-        >
-          Logout
-        </Button>
-        <ReactTooltip />
-      </React.Fragment>
+      <Nav className="ms-auto">
+        <Nav.Link href='/timetables' className='d-flex align-items-center justify-content-center'>
+          Timetables
+        </Nav.Link>
+        <Navbar.Text>
+          <React.Fragment>
+            <Button
+              data-tip={`Logged in as ${props.username}`}
+              variant="outline-primary"
+              onClick={props.onGetOut}
+            >
+              Logout
+            </Button>
+            <ReactTooltip />
+          </React.Fragment>
+        </Navbar.Text>
+      </Nav>
     );
   }
 
@@ -42,14 +51,12 @@ export default function NavBar(props: IProps) {
   return (
     <Navbar bg='light' expand="md" fixed='top' className='shadow-sm'>
       <Container>
-        <Navbar.Brand href="#">
-          <img src={require("../../assets/images/logo.png")} alt="Logo" className={styles.Logo}/>
+        <Navbar.Brand href="/">
+          <img src={require("../../assets/images/logo.png")} alt="Logo" className={styles.Logo} />
         </Navbar.Brand>
-        <Navbar.Toggle />
+        <Navbar.Toggle aria-controls="navbartoggle" />
         <Navbar.Collapse className="justify-content-end">
-          <Navbar.Text>
-            {component}
-          </Navbar.Text>
+          {component}
         </Navbar.Collapse>
       </Container>
     </Navbar>
