@@ -3,21 +3,25 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
+import { NavBar } from "../../components";
 import styles from "./Page404.module.css"
 import React from "react";
-import { Container } from "react-bootstrap";
 
 export default function Page404() {
+  // render
   return (
     <main className={styles.Page404}>
-      <Container>
+      <section className={styles.NavBar}>
+        <NavBar />
+      </section>
+      <section className={styles.Main}>
         <div className={styles.StatusCode}>
           404
         </div>
         <div className={styles.Message}>
           Page Not Found
         </div>
-      </Container>
+      </section>
     </main>
   );
 }

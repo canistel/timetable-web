@@ -11,7 +11,7 @@ import { NavBar } from "../../components";
 
 // Timetable page component
 export default function Timetable() {
-  // navugation hook to nav
+  // navigation hook to nav
   const navigation = useNavigate();
 
   // list of time tables
@@ -49,7 +49,7 @@ export default function Timetable() {
   return (
     <main className={styles.Timetable}>
       <section className={styles.NavBar}>
-        <NavBar />
+        <NavBar  />
       </section>
       <section className={styles.Main}>
         {components}

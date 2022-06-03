@@ -3,6 +3,8 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
+import { selectIsAuthenticated } from "../../redux/slices";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styles from "./Homepage.module.css";
 import { NavBar } from "../../components";
@@ -10,6 +12,9 @@ import { Button } from "react-bootstrap";
 
 // Home Page component
 export default function Homepage() {
+  // is authenticated
+  const isAuthenticated = useSelector(selectIsAuthenticated);
+
   // navigator hook
   let navigate = useNavigate();
 
@@ -27,7 +32,7 @@ export default function Homepage() {
   }
 
   // if authed
-  if (false) {
+  if (isAuthenticated) {
     component = (
       <Button variant="primary" onClick={showHandler}>
         Show Timetables !

@@ -46,9 +46,7 @@ export default function Schedule() {
   });
 
   // add front
-  components.unshift((
-    <TitleComponent title={"Schedule"} />
-  ));
+  components.unshift(( <TitleComponent title={"Schedule"} /> ));
 
   // add keydown handler
   document.addEventListener("keydown", (event: KeyboardEvent) => {

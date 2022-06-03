@@ -13,16 +13,22 @@
     justify-content: center;
 }
 
-.StatusCode, .Message {
+.NavBar {
+    height: 60px;
+}
+
+.StatusCode, 
+.Message {
     background: linear-gradient(#00f, #00b);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
 .StatusCode {
-    font-size: 4.5rem;
+    font-size: 6.5rem;
 }
 
 .Message {

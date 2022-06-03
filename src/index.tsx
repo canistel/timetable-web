@@ -6,11 +6,19 @@
 import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ReactDOM from "react-dom";
-import React from "react";
+import store from './redux/store';
 import App from "./App";
+import { Provider } from 'react-redux';
 
 // root element
 const root = document.getElementById("root");
 
 // render
-ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, root);
+ReactDOM.render(
+  <BrowserRouter>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </BrowserRouter>,
+  root
+);
