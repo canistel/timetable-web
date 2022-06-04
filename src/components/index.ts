@@ -4,7 +4,7 @@
 // https://opensource.org/licenses/MIT
 
 import Timetable from "./Timetable/Timetable";
-import NavBar from "./NavBar/NavBar";
+import NavBar from "./Navigation/NavBar";
 import Register from "./Register/Register";
 import Schedule from "./Schedule/Schedule";
 

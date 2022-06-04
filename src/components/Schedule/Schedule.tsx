@@ -10,6 +10,7 @@ import React, { useState } from "react";
 
 // Component IProps
 interface IProps extends React.HTMLAttributes<HTMLDivElement> {
+  onDeleteRequest?: (scheduleId: number) => void;
   onEditRequest?: (scheduleID: number) => void;
   onFinished?: (finished: boolean) => void;
   schedule: ISchedule;
@@ -20,9 +21,16 @@ export default function Schedule(props: IProps) {
   // component states
   const [finished, setFinished] = useState(props.schedule.finished);
 
+  // delete handler
+  const deleteHandler = (evt: React.MouseEvent<HTMLImageElement>) => {
+    props.onDeleteRequest && props.onDeleteRequest(props.schedule.scheduleId);
+    evt.stopPropagation();
+  }
+
   // Click Handler for Editable
-  const editHandler = () => {
+  const editHandler = (evt: React.MouseEvent<HTMLImageElement>) => {
     props.onEditRequest && props.onEditRequest(props.schedule.scheduleId);
+    evt.stopPropagation();
   }
 
   // check box Handler
@@ -36,11 +44,22 @@ export default function Schedule(props: IProps) {
     <div className={styles.Schedule}>
       <Container className={styles.ScheduleContainer}>
         <Row className='justify-content-center'>
-          <Col xs={10}>
+          <Col xs={8} className="d-flex justify-content-start">
             <div className={styles.Title}>{props.schedule.description}</div>
           </Col>
-          <Col xs={2}>
-            <img src={require("../../assets/images/editpen.png")} alt="Edit" onClick={editHandler} className={styles.EditPen}/>
+          <Col xs={4} className="d-flex justify-content-end">
+            <img 
+              src={require("../../assets/images/editpen.png")} 
+              alt="Edit" 
+              onClick={editHandler} 
+              className={styles.Icon} 
+            />
+            <img 
+              src={require("../../assets/images/delete.png")} 
+              alt="Edit" 
+              onClick={deleteHandler} 
+              className={styles.Icon} 
+            />
           </Col>
         </Row>
         <Row className='justify-content-center'>
@@ -56,7 +75,7 @@ export default function Schedule(props: IProps) {
             </div>
           </Col>
           <Col xs={2}>
-            <Form.Check type="checkbox" onChange={tickHandler} checked={finished} className={styles.Status}/>
+            <Form.Check type="checkbox" onChange={tickHandler} checked={finished} className={styles.Status} />
           </Col>
         </Row>
       </Container>

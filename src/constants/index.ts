@@ -3,4 +3,4 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-export const BASE_API_URL = `http://lovalhost:3000/api/v1`;
+export const BASE_API_URL = `http://localhost:3000/api/v1`;

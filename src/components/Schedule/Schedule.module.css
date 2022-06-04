@@ -18,12 +18,12 @@
     width: 100%;    
 }
 
-.EditPen {
-    margin-left: auto;
+.Icon {
     cursor: pointer;
     height: 20px;
     width: 20px;
-    display: block;
+    display: inline-block;
+    margin-left: 4px;
 }
 
 .Title {

@@ -11,6 +11,7 @@ import gradient from 'random-gradient'
 
 // Component IProps
 interface IProps extends React.HTMLAttributes<HTMLDivElement> {
+  onDeleteRequest?: (timetableId: number) => void;
   onEditRequest?: (timetableId: number) => void;
   onClicked?: (timetableId: number) => void;
   timetable: ITimetable;
@@ -34,9 +35,16 @@ export default function Timetable(props: IProps) {
     props.onClicked && props.onClicked(props.timetable.timetableId);
   }
 
+  // delete handler
+  const deleteHandler = (evt: React.MouseEvent<HTMLImageElement>) => {
+    props.onDeleteRequest && props.onDeleteRequest(props.timetable.timetableId);
+    evt.stopPropagation();
+  }
+
   // Edit Handler
-  const editHandler = () => {
+  const editHandler = (evt: React.MouseEvent<HTMLImageElement>) => {
     props.onEditRequest && props.onEditRequest(props.timetable.timetableId);
+    evt.stopPropagation();
   }
 
   // key down handler
@@ -56,17 +64,23 @@ export default function Timetable(props: IProps) {
           </Col>
         </Row>
         <Row className='justify-content-center'>
-          <Col xs={8} className='d-flex align-items-center justify-content-center'>
+          <Col xs={8} className='d-flex align-items-center justify-content-center px-2'>
             <div className={styles.Editable} onChange={changeHandler}>
               {props.timetable.description}
             </div>
           </Col>
-          <Col xs={4} className='d-flex align-items-center justify-content-center'> 
+          <Col xs={4} className='d-flex align-items-center justify-content-center px-0'> 
             <img 
               src={require("../../assets/images/editpen.png")} 
               alt="logo" 
               onClick={editHandler} 
-              className={styles.EditPen}
+              className={styles.Icon}
+            />
+            <img 
+              src={require("../../assets/images/delete.png")} 
+              alt="logo" 
+              onClick={deleteHandler} 
+              className={styles.Icon}
             />
           </Col>
         </Row>
